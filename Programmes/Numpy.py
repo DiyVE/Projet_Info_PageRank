@@ -1,9 +1,10 @@
 import numpy as np
 import time
+
 def dictionnaire(nom_fichier = "fichier.txt"):
     dico_2 = dict()
     dico_1 = dict()
-    with open("fichier.txt", "r") as f:
+    with open("worm.net", "r") as f:
        N = int(f.readline())
        line = f.readline()
        while line != "":
