@@ -1,15 +1,16 @@
 import time
 import numpy as np
+from tqdm import tqdm
 import cProfile
 dico = dict()
 dico2 = dict()
 
 alpha = 0.85
 
-with open("worm.net", "r") as f:
+with open("brainlinks.net", "r") as f:
     lines = f.readlines()
     N = int(lines[0])
-    for line in lines[1:]:
+    for line in tqdm(lines[1:]):
         formated_line = line.split()
         if int(formated_line[0]) not in dico:
             dico[int(formated_line[0])] = set()

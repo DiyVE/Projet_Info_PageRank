@@ -1,4 +1,5 @@
 import sys
+import terminal
 parametres = {'type_execution': '-N', 'alpha': 0.85, 'k': 150, 'epsilon': -1}  # On initialise le dictionnaire parametre avec les valeurs par defaut associés
 
 
@@ -19,7 +20,7 @@ def recuperer_parametre_utilisateur(ligne_commande):
                     parametres['alpha'] = ligne_commande[index_liste_parametre+1]
                 
                 else:
-                    liste_erreurs.append("La Valeur de alpha doit être comprise entre 0 et 1")
+                    liste_erreurs.append("La valeur de alpha doit être comprise entre 0 et 1")
                 index_liste_parametre += 1
             
             except ValueError or IndexError:
@@ -64,8 +65,22 @@ def recuperer_parametre_utilisateur(ligne_commande):
         print("Plusieurs erreurs ont été détectés :")
         
         for erreur in liste_erreurs:
-            print(f"         - {erreur}")
+            print(terminal.red(f"         - {erreur}"))
 
 if __name__ == "__main__":
+    print(""" 
+                     /$$$$$$$                                     /$$$$$$$                      /$$      
+                    | $$__  $$                                   | $$__  $$                    | $$      
+                    | $$  \ $$ /$$$$$$   /$$$$$$   /$$$$$$       | $$  \ $$  /$$$$$$  /$$$$$$$ | $$   /$$
+                    | $$$$$$$/|____  $$ /$$__  $$ /$$__  $$      | $$$$$$$/ |____  $$| $$__  $$| $$  /$$/
+                    | $$____/  /$$$$$$$| $$  \ $$| $$$$$$$$      | $$__  $$  /$$$$$$$| $$  \ $$| $$$$$$/ 
+                    | $$      /$$__  $$| $$  | $$| $$_____/      | $$  \ $$ /$$__  $$| $$  | $$| $$_  $$ 
+                    | $$     |  $$$$$$$|  $$$$$$$|  $$$$$$$      | $$  | $$|  $$$$$$$| $$  | $$| $$ \  $$
+                    |__/      \_______/ \____  $$ \_______/      |__/  |__/ \_______/|__/  |__/|__/  \__/
+                                        /$$  \ $$                                                        
+                                       |  $$$$$$/                                                        
+                                        \______/                                                         
+
+    """)
     print(recuperer_parametre_utilisateur(sys.argv))
 
