@@ -1,11 +1,11 @@
 import sys
 import terminal
-parametres = {'type_execution': '-N', 'alpha': 0.85, 'k': 150, 'epsilon': -1}  # On initialise le dictionnaire parametre avec les valeurs par defaut associés
+parametres = {'type_execution': '-N', 'alpha': 0.85, 'k': 150, 'epsilon': -1}  # On initialise le dictionnaire paramètre avec les valeurs par defaut associées
 
 
 def recuperer_parametre_utilisateur(ligne_commande):
     ligne_commande = ligne_commande[1:]  # On enlève le premier élément qui correspond au nom du fichier .py
-    parametres["nom_fichier_reseaux"] = ligne_commande.pop()  # On lit et on enlève le dernier élément de la liste ligne_commande qui correspond au nom du fichier résaux
+    parametres["nom_fichier_reseaux"] = ligne_commande.pop()  # On lit et on enlève le dernier élément de la liste ligne_commande qui correspond au nom du fichier réseau
     liste_erreurs = []  # Liste contenant toute les erreurs pouvant avoir survenue lors de la saisie
     index_liste_parametre = 0
 
@@ -58,13 +58,13 @@ def recuperer_parametre_utilisateur(ligne_commande):
             liste_erreurs.append("L'option {} n'a pas été reconnue !".format(ligne_commande[index_liste_parametre]))
 
         index_liste_parametre += 1
-    if len(liste_erreurs) == 0:
+    if len(liste_erreurs) == 0:  #Si aucune erreur n'a été détectée
         return parametres
     
     else:
-        print("Plusieurs erreurs ont été détectés :")
+        print("/!\ Plusieurs erreurs ont été détectées :\n")
         
-        for erreur in liste_erreurs:
+        for erreur in liste_erreurs:  # Affiche les erreurs enregistrées
             print(terminal.red(f"         - {erreur}"))
 
 if __name__ == "__main__":
