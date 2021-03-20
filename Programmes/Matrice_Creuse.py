@@ -1,7 +1,9 @@
 import time
 import numpy as np
+import cProfile
 dico = dict()
 dico2 = dict()
+
 alpha = 0.85
 
 with open("worm.net", "r") as f:
@@ -23,35 +25,32 @@ dico2 = {0 : set([1, 2]), 1 : set([1, 0, 2]), 2 : set([1, 0]), 3 : set([1, 4, 5]
 """
 
 """
-    0 0 1
-    0 0 0
-    1 1 0
+        f 0 1
+        0 0 0
+        1 1 0
 """
 ite = 0
-
 vide = set(range(N)) - set(dico.keys())
 
-def itera():
-    for i in range(N) :
-        vectbis = list(vect)
-        for j in dico2.get(i, ()) :
-            #print(((1/len(dico[j])*alpha + (1-alpha)/N))*vectbis[j])
-            vect_plus[i] += ((1/len(dico[j])*alpha + (1-alpha)/N))*vectbis[j]
-            vectbis[j] = 0
-        for j in vide :
-            vect_plus[i] += (1/N)*vectbis[j]
-            vectbis[j] = 0
-        vect_plus[i] += ((1-alpha)/N)*sum(vectbis)
-    
+def vecteur_poids(k):
+    if k==0:
+        return [1/N]*N
+    else:
+        vect_plus = [0]*N
+        vect = vecteur_poids(k-1)
+        for i in range(N) :
+            vectbis = list(vect)
+            for j in dico2.get(i, ()) :
+                #print(((1/len(dico[j])*alpha + (1-alpha)/N))*vectbis[j])
+                vect_plus[i] += ((1/len(dico[j])*alpha + (1-alpha)/N))*vectbis[j]
+                vectbis[j] = 0
+            for j in vide :
+                vect_plus[i] += (1/N)*vectbis[j]
+                vectbis[j] = 0
+            vect_plus[i] += ((1-alpha)/N)*sum(vectbis)
+        return vect_plus
 
-vect_plus = [1/N]*N
-vect = []*N
-for k in range(150) :
-    ite += 1
-    vect = list(vect_plus)
-    vect_plus = [0]*N
-    tps1 = time.time()
-    itera()
-    tps2 = time.time()
+vect_plus = vecteur_poids(150)
 vect_plus.sort(reverse=True)
-print(vect_plus, ite)
+print(vect_plus)
+
