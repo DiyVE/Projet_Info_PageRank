@@ -17,7 +17,13 @@ print("""
                     |__/      \_______/ \____  $$ \_______/      |__/  |__/ \_______/|__/  |__/|__/  \__/
                                         /$$  \ $$                                                        
                                        |  $$$$$$/                                                        
-                                        \______/                                                         
+                                        \______/    
+
+
+                            ******************************************************************
+                            | Crée par : Cassandra Mussard & Margot Helias & Clément Ramirez |
+                            ******************************************************************
+
 
 """)
 
@@ -27,3 +33,5 @@ if Interaction_Utilisateur.recuperer_parametres_utilisateur(sys.argv) != -1:
 
 if len(Interaction_Utilisateur.liste_erreurs) != 0:
     Interaction_Utilisateur.afficher_les_erreurs()
+
+print("")
