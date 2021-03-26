@@ -9,7 +9,7 @@ Module Permettant de gérer toutes les interactions avec les fichiers
 
 class Fichiers():
     def extraire_donnees_fichier(self, nom_fichier):
-        hyperliens = {}
+        self.hyperliens = {}
         try:
             with open(nom_fichier, "r") as f:
                 lignes = f.readlines()
@@ -17,9 +17,11 @@ class Fichiers():
                 # Barre_de_chargement = IncrementalBar("Création du Dictionnaire d'Hyperliens",max = (len(readlines)-1))
                 for ligne in lignes[1:]:
                     elements_ligne = ligne.split()
-                    hyperliens.setdefault(int(elements_ligne[0]), set()).add(int(elements_ligne[1]))
+                    self.hyperliens.setdefault(int(elements_ligne[0]), set()).add(int(elements_ligne[1]))
             
             print("Création du dictionnaire terminée")
-            return hyperliens
+            return self.hyperliens
         except IOError:
             return -1
+
+    def ecrire_donnees_fichier():

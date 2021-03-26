@@ -3,7 +3,7 @@ import terminal
 
 class Utilisateur():
     def __init__(self):
-        self.parametres = {'type_execution': '-N', 'alpha': 0.85, 'k': 150, 'epsilon': -1}  # On initialise le dictionnaire paramètre avec les valeurs par defaut associées
+        self.parametres = {'type_execution': '-N', 'alpha': 0.85, 'k': 150, 'epsilon': -1}  # On initialise le dictionnaire paramètres avec les valeurs par defaut associées
         self.liste_erreurs = []  # Liste contenant toute les erreurs pouvant avoir survenue lors de la saisie
 
     def recuperer_parametres_utilisateur(self, ligne_commande):
@@ -71,6 +71,6 @@ class Utilisateur():
 
     def afficher_les_erreurs(self):
         print("/!\ Plusieurs erreurs ont été détectées :\n")
-        for erreur in self.liste_erreurs:  # Affiche les erreurs enregistrées
+        for erreur in self.liste_erreurs:  # Afficher les erreurs enregistrées
             print(terminal.red(f"         - {erreur}"))
         print("\nLa génération des fichiers de sortie ne peut aboutir.\nAfin de corriger vos erreurs veuillez consulter l'aide en tapant <....py --help>")
