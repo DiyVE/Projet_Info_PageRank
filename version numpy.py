@@ -1,6 +1,6 @@
 '''Faire le page rank de la version Numpy'''
 import numpy as np #import du module 
-
+#from Gestion_Fichier import 
 
 alpha=0.85
 #Récupérer les données des dictionnaires
@@ -12,7 +12,7 @@ def matrice_H():
   Permet de construire la matrice H
 sortie : matrice H (array)
   '''
-  H=np.zeros((nombre_de_pages,nombre_de_pages)))# Initialiser une matrice nulle 
+  H=np.zeros((nombre_de_pages,nombre_de_pages))# Initialiser une matrice nulle 
   for lignes,i in dictionnaire_1.items(): # Parcourir les clés et les valeurs du dictionnaire
       for colonnes in i: #Parcourir dans les valeurs la liste 
           H[lignes,colonnes]=1/len(i) #Transformer les coefficients nuls 
@@ -45,11 +45,11 @@ def vecteur_poids(k, G):
   param: matrice G (array)
   sortie: vecteur poids trié dans l'ordre décroissant
   '''
-    poids=[]
+  liste_poids=[]
     
-    if k==0: #Initialiser le cas terminal 
-        return np.full(shape=(1,nombre_de_pages),fill_value=1/nombre_de_pages) #Renvoyer une matrice de taille (1,nombre de pages) avec comme valeur 1/nombre de pages
-    else: #Faire le cas général
-        return np.dot(vecteur_poids(k-1, G),G) #Renvoyer le produit entre le vecteur poids d'avant et la matrice G
-    
-    return np.sort(vecteur_poids(150,G))[::-1])#Trier dans l'ordre décroissant 
+  if k==0: #Initialiser le cas terminal 
+    return np.full(shape=(1,nombre_de_pages),fill_value=1/nombre_de_pages) #Renvoyer une matrice de taille (1,nombre de pages) avec comme valeur 1/nombre de pages
+  else:#Faire le cas général
+    return np.dot(vecteur_poids(k-1, G),G) #Renvoyer le produit entre le vecteur poids d'avant et la matrice G
+
+  return poids.append(np.sort(vecteur_poids(150,G))[::-1])#Trier dans l'ordre décroissant 

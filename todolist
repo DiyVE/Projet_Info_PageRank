@@ -1,0 +1,3 @@
+#importer N, ... dans fichier calcul pagerank Numpy
+#verifier si calcul des vecteurs poids est bon
+#recuperer les valeurs du dico page rank pour le page rank

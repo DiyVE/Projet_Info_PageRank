@@ -1,0 +1,28 @@
+   #if  k==0 :
+            #return np.full(shape=(1,N),fill_value=1/N) #Renvoyer une matrice de taille (1,nombre de pages) avec comme valeur 1/nombre de pages
+        #else:
+            #return(np.dot(vecteur_poids(k-1, G),G)
+
+        
+
+    #if parametres['epsilon'] > 0: 
+        #return np.full(shape=(1,N),fill_value=1/N)
+    
+    
+    #if k==0 : #Initialiser le cas terminal 
+        #return np.full(shape=(1,N),fill_value=1/N) #Renvoyer une matrice de taille (1,nombre de pages) avec comme valeur 1/nombre de pages
+    #else: # k!=0 and parametres['epsilon'] < 0: #cas pas de epsilon
+        #print(np.dot(vecteur_poids(k-1, G),G))#Renvoyer le produit entre le vecteur poids d'avant et la matrice G
+        #if vecteur_poids(k,G)-vecteur_poids(k-1,G)  < parametres['epsilon'] :
+            #return vecteur_poids(k,G)
+
+            
+
+#return liste_poids.append(np.sort(vecteur_poids(150,G))[::-1])#Trier dans l'ordre décroissant
+
+classe_1= Fichiers()
+N=(classe_1.extraire_donnees_fichier[1])
+classe_2= Utilisateur()
+alpha=(classe_2.recuperer_parametres_utilisateur[0])
+epsilon= (classe_2.recuperer_parametres_utilisateur[1])
+k=(classe_2.recuperer_parametres_utilisateur[2])
